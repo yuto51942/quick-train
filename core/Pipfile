@@ -3,9 +3,16 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
+[[source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu111"
+verify_ssl = false
+
 [dev-packages]
 
 [packages]
+torch = {version="==1.8.1", index="pytorch"}
+torchvision = {verison="==0.9.1", index="pyroch"}
 
 [requires]
 python_version = "3.8"

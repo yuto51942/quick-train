@@ -7,3 +7,10 @@ def check():
   """
   print(torch.__version__)
   print(torch.cuda.is_available())
+
+def main():
+  check()
+
+
+if __name__ == "__main__":
+  main()

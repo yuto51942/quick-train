@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1.0-experimental
-FROM nvidia/cuda:11.2.0-runtime-ubuntu20.04
+FROM nvidia/cuda:11.2.1-base-ubuntu20.04
 
 ENV PYTHON_VERSION 3.8.8
 
@@ -40,3 +40,8 @@ RUN pip --version \
   && pip install pipenv \
   && pipenv --version
 
+# intall pipfile lock
+COPY core/Pipfile /core/Pipfile
+COPY core/Pipfile.lock /core/Pipfile.lock
+RUN cd core \
+  && pipenv install --system --deploy
